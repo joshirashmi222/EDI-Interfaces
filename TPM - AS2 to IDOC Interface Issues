@@ -4,3 +4,8 @@ Solution :- 3303411 - AS2 sender adapter issue.
 Even though in TPM configurations no signature certificate was used still due to value present in partner directory it was getting overwritten.
 Workaround applied is I changed the trading partner name in TPM.
 Scope - Explore how to update partner directory
+
+2. Error - com.sap.it.rt.adapter.as2.api.exception.InboundProcessingException: com.sap.it.api.pd.exception.PartnerDirectoryException: No partner registered for the incoming request.
+Solution :- There was mismatch in system version while creating company profile and trading partner profile and used MIG and MAG
+Also X12 file GS segment was not using PO value
+--> GS*PO*784849291*315029991*20051007*0928*1*U*004010~
