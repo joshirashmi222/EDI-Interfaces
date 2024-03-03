@@ -9,3 +9,78 @@ Scope - Explore how to update partner directory
 Solution :- There was mismatch in system version while creating company profile and trading partner profile and used MIG and MAG
 Also X12 file GS segment was not using PO value
 --> GS*PO*784849291*315029991*20051007*0928*1*U*004010~
+
+3. Error file downloaded from Step 2 IFlow -
+Error :-
+ <MessageError type="850">
+      <MessageControlNumber>10001</MessageControlNumber>
+      <SegmentError>
+        <Error>
+          <ElementType>SegmentElement</ElementType>
+          <XPath>/Interchange/S_GS/M_850</XPath>
+          <ErrorCode>6</ErrorCode>
+          <ErrorText>	</ErrorText>
+          <SegmentPosition>3</SegmentPosition>
+        </Error>
+        <Error>
+          <ElementType>SegmentElement</ElementType>
+          <XPath>/Interchange/S_GS/M_850</XPath>
+          <ErrorCode>6</ErrorCode>
+          <ErrorText>Segment not in defined transaction set</ErrorText>
+          <SegmentPosition>7</SegmentPosition>
+        </Error>
+        <Error>
+          <ElementType>SegmentElement</ElementType>
+          <XPath>/Interchange/S_GS/M_850</XPath>
+          <ErrorCode>6</ErrorCode>
+          <ErrorText>Segment not in defined transaction set</ErrorText>
+          <SegmentPosition>8</SegmentPosition>
+        </Error>
+      </SegmentError>
+    </MessageError>
+
+Solution :- XSD schema was having segments MEA and AMT, added these 2 segments in input X12 payload to fix this error 
+
+4. Error :- 
+<MessageError type="850">
+			<MessageControlNumber>10001</MessageControlNumber>
+			<SegmentError>
+				<Error>
+					<ElementType>SegmentElement</ElementType>
+					<XPath>/Interchange/S_GS/M_850/S_AMT</XPath>
+					<ErrorCode>7</ErrorCode>
+					<ErrorText>Segment not in proper sequence</ErrorText>
+					<SegmentPosition>11</SegmentPosition>
+				</Error>
+			</SegmentError>
+Solution :- Segment AMT was at wrong place after placing it in correct sequence error fixed.
+
+5. Error :- <MessageError type="850">
+			<MessageControlNumber>10001</MessageControlNumber>
+			<Error>
+				<ElementType>X12MessageElement</ElementType>
+				<XPath>/Interchange/S_GS/M_850</XPath>
+				<ErrorCode>4</ErrorCode>
+				<ErrorText>Number of included segments does not match actual count</ErrorText>
+				<SegmentPosition>13</SegmentPosition>
+			</Error>
+		</MessageError>
+Solution :- Segment count starts from segment ST*850*10001~ to SE*12*10001~ 
+Segment SE should have correct count value
+Example :-
+ISA*00*          *00*          *01*784849291      *01*315029991      *051007*0928*/*4010 *000000001*0*P*^~
+GS*PO*784849291*315029991*20051007*0928*1*U*004010~
+ST*850*10001~                                                   --> Segment 1
+BEG*00*SA*XX-1234**20240226**NA~                                --> Segment 2
+PER*BD*ED SMITH*TE*8001234567~
+MEA*9L*1*10.1~
+AMT*TT*900~
+N1*BY*ABC AEROSPACE*9*1234567890101~
+N2*AIRCRAFT DIVISION~
+N3*2000 JET BLVD~
+N4*FIGHTER TOWN*CA*98898~
+PO1*1*25*EA*36*PE*MG~
+CTT*1~                                                         --> Segment 11
+SE*12*10001~                                                   --> Segment 12
+GE*1*1~
+IEA*1*000000001~
