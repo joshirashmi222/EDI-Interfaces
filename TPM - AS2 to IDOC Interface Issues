@@ -1,0 +1,6 @@
+1. AS2 sender channel error -
+Integration flow fails with error “com.sap.it.rt.adapter.as2.api.exception.ChannelConfigException: No certificate value configured for signature verification”
+Solution :- 3303411 - AS2 sender adapter issue. 
+Even though in TPM configurations no signature certificate was used still due to value present in partner directory it was getting overwritten.
+Workaround applied is I changed the trading partner name in TPM.
+Scope - Explore how to update partner directory
