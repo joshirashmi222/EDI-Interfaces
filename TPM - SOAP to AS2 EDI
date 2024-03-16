@@ -1,0 +1,8 @@
+Error :- 
+1. Trace :- 
+Tracejavax.script.ScriptException: java.lang.Exception: java.lang.IllegalStateException: Parameter recDocumentStandard not found for
+Partner ID: SAP_TPM_9681ea63da49f700a20244ab55a39ed7
+Partner Directory Lookup Keys: SOAP-SAP_S4HANA_Cloud_SOA--1905-SO_123_RJ-----ZZ_SOAP_S_RJ-----OrderRequest
+@ line 437 in callPDwithHeaderParameters.groovy
+Solution :- TPM --> B2B Scenario --> Sender Adapter used was ProcessDirect but user postman and triggered messages to std TPM SOAP sender iflow
+Hence, PD lookup was failing. After changing sender adapter to SOAP issue resolved.
