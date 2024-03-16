@@ -6,3 +6,53 @@ Partner Directory Lookup Keys: SOAP-SAP_S4HANA_Cloud_SOA--1905-SO_123_RJ-----ZZ_
 @ line 437 in callPDwithHeaderParameters.groovy
 Solution :- TPM --> B2B Scenario --> Sender Adapter used was ProcessDirect but user postman and triggered messages to std TPM SOAP sender iflow
 Hence, PD lookup was failing. After changing sender adapter to SOAP issue resolved.
+
+Postman --
+URL = https://pocus.it-cpi003-rt.cfapps.us10.hana.ondemand.com/cxf/tpm/b2b/soap/
+ID = sb-ab0f7aa2-2419-4355-bb2f-4871eefe771b!b5758|it-rt-pocus!b2455
+PSWD = 6c602d9f-a9d0-4b28-a157-cd617802bcac$8rYfRhBl9Hyzpo17G1nObEGon6BbGHX6RoHvwt8AamE=
+
+Payload =
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dis="http://camel.apache.org/cxf/jaxws/dispatch">
+   <soapenv:Header/>
+   <soapenv:Body>
+<ns1:OrderRequest xmlns:ns1="http://sap.com/xi/EDI">
+	<MessageHeader>
+		<CreationDateTime/>
+		<SenderParty>
+			<InternalID>SO_123_RJ</InternalID>
+		</SenderParty>
+		<RecipientParty>
+			<InternalID>ZZ_SOAP_S_RJ</InternalID>
+		</RecipientParty>
+	</MessageHeader>
+	<Order>
+		<PurchaseOrderID>4500000011</PurchaseOrderID>
+		<PurchasingDocumentType>NB</PurchasingDocumentType>
+		<PurchaseOrderCreationDate>2016-08-09T00:00:00.000</PurchaseOrderCreationDate>
+		<TransactionCurrency>USD</TransactionCurrency>
+		<BuyerExchangeRate>1.00000</BuyerExchangeRate>
+		<Party PartyType="ShipFrom">
+			<SupplierPartyID>17300001</SupplierPartyID>
+			<Address>
+				<AddressName>Domestic US Supplier 1</AddressName>
+				<StreetName>S Ohio Ave</StreetName>
+				<HouseNumber>198</HouseNumber>
+				<PostalCode>47305-2757</PostalCode>
+				<CityName>Muncie</CityName>
+				<Country>US</Country>
+				<Region>IN</Region>
+				<PhoneNumber>+19998564321</PhoneNumber>
+				<CorrespondenceLanguage>EN</CorrespondenceLanguage>
+			</Address>
+		</Party>
+		<HeaderIncoterms>
+			<IncotermsVersion>1</IncotermsVersion>
+		</HeaderIncoterms>
+		<PaymentTerms>
+			<BuyerPaymentTermsID>0004</BuyerPaymentTermsID>
+		</PaymentTerms>
+	</Order>
+</ns1:OrderRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
