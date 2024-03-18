@@ -1,0 +1,115 @@
+--MIME_boundary
+Content-ID: 
+<f253bcb2-c686-4abb-bd01-e417eb6ad541ebxml-Header>
+Content-Type: text/xml
+
+
+    <?xml version="1.0" encoding="utf-8" ?>
+    <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eb="http://www.oasis-open.org/committees/ebxml-msg/schema/msg-header-2_0.xsd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://www.oasis-open.org/committees/ebxml-msg/schema/envelope.xsd">
+        <SOAP-ENV:Header xsi:schemaLocation="http://www.oasis-open.org/committees/ebxml-msg/schema/msg-header-2_0.xsd http://www.oasis-open.org/committees/ebxml-msg/schema/msg-header-2_0.xsd">
+            <eb:MessageHeader SOAP-ENV:mustUnderstand="1" eb:version="2.0">
+                <eb:From>
+                    <eb:PartyId eb:type="GLN">0629245000011</eb:PartyId>
+                </eb:From>
+                <eb:To>
+                    <eb:PartyId eb:type="GLN">0811875010007</eb:PartyId>
+                </eb:To>
+                <eb:CPAId>CNReceiptNotice</eb:CPAId>
+                <eb:ConversationId>0000000074186902-37cb13dcd1d711ee8dc2000000305f66</eb:ConversationId>
+                <eb:Service>uri:CNReceiptNotice</eb:Service>
+                <eb:Action>ReceiptNotice</eb:Action>
+                <eb:MessageData>
+                    <eb:MessageId>f253bcb2-c686-4abb-bd01-e417eb6ad541</eb:MessageId>
+                    <eb:Timestamp>2024-02-22T23:07:58Z</eb:Timestamp>
+                </eb:MessageData>
+                <eb:DuplicateElimination/>
+            </eb:MessageHeader>
+            <eb:AckRequested SOAP-ENV:mustUnderstand="1" eb:signed="false" eb:version="2.0"/>
+        </SOAP-ENV:Header>
+        <SOAP-ENV:Body>
+            <eb:Manifest eb:id="Manifest" eb:version="2.0">
+                <eb:Reference eb:id="Payload-1" xlink:href="cid:f253bcb2-c686-4abb-bd01-e417eb6ad541__body1" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            </eb:Manifest>
+        </SOAP-ENV:Body>
+    </SOAP-ENV:Envelope>
+
+--MIME_boundary
+Content-ID: 
+    <f253bcb2-c686-4abb-bd01-e417eb6ad541__body1>
+Content-Type: application/xml
+
+
+        <?xml version="1.0" encoding="UTF-8"?>
+        <ReceiptNotice xmlns="urn:cidx:names:specification:ces:schema:all:5:0" Version="5.0">
+            <Header>
+                <ThisDocumentIdentifier>
+                    <DocumentIdentifier>0000000074186902</DocumentIdentifier>
+                </ThisDocumentIdentifier>
+                <ThisDocumentDateTime>
+                    <DateTime DateTimeQualifier="On">2024-02-23T05:07:57Z</DateTime>
+                </ThisDocumentDateTime>
+                <From>
+                    <PartnerInformation>
+                        <PartnerName>GROWMARK INC</PartnerName>
+                        <PartnerIdentifier Agency="GLN">0629245000011</PartnerIdentifier>
+                    </PartnerInformation>
+                </From>
+                <To>
+                    <PartnerInformation>
+                        <PartnerName>MOSAIC GLOBAL SALES</PartnerName>
+                        <PartnerIdentifier Agency="GLN">0811875010007</PartnerIdentifier>
+                    </PartnerInformation>
+                </To>
+            </Header>
+            <ReceiptNoticeBody>
+                <ReceiptNoticeProperties>
+                    <DeliveryReceiptIdentification>
+                        <DocumentReference>
+                            <DocumentIdentifier>4530001911</DocumentIdentifier>
+                            <DateTime DateTimeQualifier="On">2024-02-22T23:07:57Z</DateTime>
+                        </DocumentReference>
+                    </DeliveryReceiptIdentification>
+                    <PurchaseOrderInformation>
+                        <DocumentReference>
+                            <DocumentIdentifier>0080002062</DocumentIdentifier>
+                        </DocumentReference>
+                    </PurchaseOrderInformation>
+                </ReceiptNoticeProperties>
+                <ReceiptNoticePartners>
+                    <Buyer>
+                        <PartnerInformation>
+                            <PartnerName>MOSAIC GLOBAL SALES</PartnerName>
+                            <PartnerIdentifier Agency="GLN">0811875010007</PartnerIdentifier>
+                        </PartnerInformation>
+                    </Buyer>
+                    <Seller>
+                        <PartnerInformation>
+                            <PartnerName>MOSAIC GLOBAL SALES</PartnerName>
+                            <PartnerIdentifier Agency="GLN">0811875010007</PartnerIdentifier>
+                        </PartnerInformation>
+                    </Seller>
+                </ReceiptNoticePartners>
+                <ReceiptNoticeDetails>
+                    <ReceiptNoticeProductLineItem>
+                        <LineNumber>0000000020</LineNumber>
+                        <ProductIdentification>
+                            <ProductIdentifier Agency="AGIIS-ProductID">000000000000306742</ProductIdentifier>
+                        </ProductIdentification>
+                        <ShippedQuantity>
+                            <Measurement>
+                                <MeasurementValue>99.050</MeasurementValue>
+                                <UnitOfMeasureCode>STN</UnitOfMeasureCode>
+                            </Measurement>
+                        </ShippedQuantity>
+                        <ReceivedQuantity>
+                            <Measurement>
+                                <MeasurementValue>99.050</MeasurementValue>
+                                <UnitOfMeasureCode Domain="UN-Rec-20">STN</UnitOfMeasureCode>
+                            </Measurement>
+                        </ReceivedQuantity>
+                    </ReceiptNoticeProductLineItem>
+                </ReceiptNoticeDetails>
+            </ReceiptNoticeBody>
+        </ReceiptNotice>
+
+--MIME_boundary--
