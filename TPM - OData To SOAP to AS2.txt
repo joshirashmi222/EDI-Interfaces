@@ -1,0 +1,10 @@
+Error :- Unassigned Interchange ab293c588b7c44c69714be4104ee1c0a
+Details :- Error CategoryAgreement Configuration Access FailedError InformationIncoming message could not be parsed.
+
+Solution :- Added below headers in custom IFlow -
+SAP_COM_SND_Adapter_Type = Constant = Process_Direct
+SAP_COM_SND_If_Message_Header = XPath = boolean(//*:MessageHeader[1]/*:RecipientParty[1]/*:InternalID[1]) java.lang.String
+SAP_EDI_Document_Standard = Constant = SAP_S4HANA_Cloud_SOA
+
+Then Process_Direct adapter used with RX URL = 
+/tpm/b2b/processdirect
